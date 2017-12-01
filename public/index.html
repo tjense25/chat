@@ -1,0 +1,41 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+<script src="https://www.gstatic.com/firebasejs/4.7.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB62YkutmB-CqE9R2An-8tTtJQ9SklWHrI",
+    authDomain: "anythingyouwant-1cda6.firebaseapp.com",
+    databaseURL: "https://anythingyouwant-1cda6.firebaseio.com",
+    projectId: "anythingyouwant-1cda6",
+    storageBucket: "anythingyouwant-1cda6.appspot.com",
+    messagingSenderId: "3368810271"
+  };
+  firebase.initializeApp(config);
+</script>
+<!-- AngularJS -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<!-- AngularFire -->
+<script src="https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js"></script>
+<!-- Your Javascript -->
+<script src="javascripts/script.js"></script>
+</head>
+
+<body>
+
+<div ng-controller="chatController">
+<form novalidate class="simple-form">
+  Name: <input type="text" ng-model="user.name" /><br />
+  Chat: <input type="text" ng-model="user.chat" /><br />
+  <input type="submit" ng-click="update(user)" value="Save" />
+</form>
+<ul>
+<li ng-repeat='line in chats'>
+{{line.from}} - {{line.body}}
+</li>
+</ul>
+</div>
+
+</body>
+</html>
